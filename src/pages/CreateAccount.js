@@ -4,8 +4,8 @@ import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import Nav from "../components/Nav";
 
-const OnBoarding = () => {
-  const [cookies] = useCookies(null);
+const CreateAccount = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(null);
   const [formData, setFormData] = useState({
     user_id: cookies.UserId,
     first_name: "",
@@ -49,7 +49,7 @@ const OnBoarding = () => {
   return (
     <>
       <Nav minimal={true} setShowModal={() => {}} showModal={false} />
-      <div className="onboarding">
+      <div className="create-account">
         <h2>Create Account</h2>
 
         <form onSubmit={handleSubmit}>
@@ -202,4 +202,4 @@ const OnBoarding = () => {
   );
 };
 
-export default OnBoarding;
+export default CreateAccount;

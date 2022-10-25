@@ -1,9 +1,12 @@
 import React from "react";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import PersonIcon from "@mui/icons-material/Person";
+import ForumIcon from "@mui/icons-material/Forum";
+import colorLogo from "../images/color-logo.png";
 
 const ChatHeader = ({ user }) => {
-  const [cookies, removeCookie] = useCookies(["user"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
   let navigate = useNavigate();
 
   const logout = () => {
@@ -18,8 +21,13 @@ const ChatHeader = ({ user }) => {
         <div className="img-container">
           <img src={user.url} alt={"photo of " + user.first_name} />
         </div>
-        <h3>{user.first_name}</h3>
+        <h3>Hi {user.first_name}!</h3>
       </div>
+      {/* <PersonIcon />
+      <ForumIcon /> */}
+      <Link to="/">
+        <img src={colorLogo} alt="colorLogo" className="logo" />
+      </Link>
       <i className="log-out-icon" onClick={logout}>
         ⇦
       </i>

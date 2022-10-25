@@ -8,7 +8,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
-  const [setCookie] = useCookies(null);
+  const [cookies, setCookie, removeCookie] = useCookies(null);
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -31,7 +31,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
       setCookie("UserId", response.data.userId);
 
       const success = response.status === 201;
-      if (success && isSignUp) navigate("/onboarding");
+      if (success && isSignUp) navigate("/create-account");
       if (success && !isSignUp) navigate("/dashboard");
 
       window.location.reload();

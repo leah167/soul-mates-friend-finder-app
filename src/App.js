@@ -1,11 +1,11 @@
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import OnBoarding from "./pages/OnBoarding";
+import CreateAccount from "./pages/CreateAccount";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 const App = () => {
-  const [cookies] = useCookies(["user"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
   const authToken = cookies.AuthToken;
 
@@ -14,7 +14,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         {authToken && <Route path="/dashboard" element={<Dashboard />} />}
-        {authToken && <Route path="/onboarding" element={<OnBoarding />} />}
+        {authToken && (
+          <Route path="/create-account" element={<CreateAccount />} />
+        )}
       </Routes>
     </BrowserRouter>
   );

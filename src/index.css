@@ -12,6 +12,7 @@ h2 {
 }
 
 * {
+  margin: 0;
   font-family: "Readex Pro", sans-serif;
 }
 
@@ -82,6 +83,7 @@ nav .logo-container {
 
 nav .logo-container .logo {
   width: 100%;
+  object-fit: contain;
 }
 
 /* ----- Home Page ----- */
@@ -131,51 +133,51 @@ nav .logo-container .logo {
   font-size: 17px;
 }
 
-/* ----- Onboarding Page  ----- */
-.onboarding {
+/* ----- Create Account  ----- */
+.create-account {
   border-top: solid 1px rgb(213, 213, 213);
 }
 
-.onboarding form {
+.create-account form {
   display: flex;
   justify-content: center;
 }
-.onboarding form section {
+.create-account form section {
   display: flex;
   flex-direction: column;
   padding: 20px;
   width: 35%;
   text-align: start;
 }
-.onboarding form input {
+.create-account form input {
   padding: 15px 30px;
   margin: 10px 0;
   font-size: 15px;
   border: solid 2px rgb(219, 219, 219);
   border-radius: 10px;
 }
-.onboarding form label {
+.create-account form label {
   margin: 10px 0;
 }
 
-.onboarding form .multiple-input-container {
+.create-account form .multiple-input-container {
   display: flex;
   flex-direction: row;
 }
 
 /* Gets rid of up and down arrows for number input */
-.onboarding form input::-webkit-outer-spin-button,
-.onboarding form input::-webkit-inner-spin-button {
+.create-account form input::-webkit-outer-spin-button,
+.create-account form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.onboarding form .multiple-input-container input {
+.create-account form .multiple-input-container input {
   margin-right: 10px;
 }
 
 /* fixes lable positioning next to radio boxes */
-.onboarding form .multiple-input-container label {
+.create-account form .multiple-input-container label {
   padding: 10px;
   border: solid 2px rgb(144, 144, 144);
   border-radius: 10px;
@@ -184,28 +186,28 @@ nav .logo-container .logo {
 }
 
 /* Gets rid of radio checkboxes */
-.onboarding form input[type="radio"] {
+.create-account form input[type="radio"] {
   display: none;
 }
 
-.onboarding form input[type="number"] {
+.create-account form input[type="number"] {
   width: 10%;
 }
 
 /* outlines input box */
-.onboarding form input[type="radio"]:checked + label {
-  border: solid 2px rgb(221, 39, 22);
+.create-account form input[type="radio"]:checked + label {
+  border: solid 2px rgb(5, 10, 148);
 }
 
-.onboarding form input[type="submit"]:hover {
+.create-account form input[type="submit"]:hover {
   background-color: rgb(235, 235, 235);
 }
 
-.onboarding form input[type="submit"]:active {
-  background-color: rgb(226, 115, 115);
+.create-account form input[type="submit"]:active {
+  background-color: rgb(61, 75, 236);
 }
 
-.onboarding form .photo-container img {
+.create-account form .photo-container img {
   width: 100%;
 }
 
@@ -262,7 +264,7 @@ nav .logo-container .logo {
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  width: 30%;
+  width: 100%;
   text-align: left;
   z-index: 1;
 }
@@ -270,6 +272,7 @@ nav .logo-container .logo {
 .chat-container .chat-container-header {
   background: linear-gradient(45deg, rgb(48, 240, 254), rgb(204, 157, 241));
   height: 100px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -278,7 +281,7 @@ nav .logo-container .logo {
 .chat-container .option {
   border: none;
   background-color: rgb(255, 255, 255);
-  border-bottom: solid 4px rgb(243, 33, 33);
+  border-bottom: solid 1px rgb(146, 147, 148);
   font-size: 20px;
   margin: 2px;
   padding: 10px;
@@ -291,6 +294,7 @@ nav .logo-container .logo {
 .chat-container .profile,
 .chat-container .log-out-icon {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
   color: rgb(255, 255, 255);
@@ -306,6 +310,11 @@ nav .logo-container .logo {
 
 .img-container img {
   width: 100%;
+}
+.chat-container-header .logo {
+  width: 80px;
+  object-fit: contain;
+  align-self: center;
 }
 
 /*-------- Chat Display --------*/

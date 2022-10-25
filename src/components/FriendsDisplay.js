@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 
 const FriendsDisplay = ({ friends, setClickedUser }) => {
   const [friendedProfiles, setFriendedProfiles] = useState(null);
-  const [cookies] = useCookies(null);
+  const [cookies, setCookie, removeCookie] = useCookies(null);
 
   const friendedUserIds = friends.map(({ user_id }) => user_id);
   const userId = cookies.UserId;
