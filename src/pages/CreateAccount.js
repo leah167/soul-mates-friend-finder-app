@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../components/Axios";
 import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,7 @@ const CreateAccount = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put("http://localhost:3010/user", {
+      const response = await axios.put("/user", {
         formData,
       });
       const success = response.status === 200;
@@ -68,21 +68,21 @@ const CreateAccount = () => {
             <label>Birthday</label>
             <div className="multiple-input-container">
               <input
-                id="dob_day"
-                type="number"
-                name="dob_day"
-                placeholder="DD"
-                required={true}
-                value={formData.dob_day}
-                onChange={handleChange}
-              />
-              <input
                 id="dob_month"
                 type="number"
                 name="dob_month"
                 placeholder="MM"
                 required={true}
                 value={formData.dob_month}
+                onChange={handleChange}
+              />
+              <input
+                id="dob_day"
+                type="number"
+                name="dob_day"
+                placeholder="DD"
+                required={true}
+                value={formData.dob_day}
                 onChange={handleChange}
               />
               <input
@@ -119,9 +119,9 @@ const CreateAccount = () => {
                 id="more-gender-identity"
                 type="radio"
                 name="gender_identity"
-                value="more"
+                value="nonbinary"
                 onChange={handleChange}
-                checked={formData.gender_identity === "more"}
+                checked={formData.gender_identity === "nonbinary"}
               />
               <label htmlFor="more-gender-identity">More</label>
             </div>

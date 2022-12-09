@@ -14,15 +14,9 @@ const ChatContainer = ({ user }) => {
       <ChatHeader user={user} />
 
       <div>
-        {/* <button className="option" onClick={() => setClickedUser(null)}>
-          Friends
-        </button> */}
         <IconButton className="option" onClick={() => setClickedUser(null)}>
           <PersonIcon className="header_icon" fontSize="large" />
         </IconButton>
-        {/* <button className="option" disabled={!clickedUser}>
-          Chat
-        </button> */}
         <IconButton className="option" disabled={!clickedUser}>
           <ForumIcon className="header_icon" fontSize="large" />
         </IconButton>

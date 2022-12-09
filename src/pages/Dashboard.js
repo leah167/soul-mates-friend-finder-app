@@ -1,8 +1,9 @@
-import axios from "axios";
+import axios from "../components/Axios";
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import TinderCard from "react-tinder-card";
 import ChatContainer from "../components/ChatContainer";
+import ChatHeader from "../components/ChatHeader";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -14,7 +15,7 @@ const Dashboard = () => {
 
   const getUser = async () => {
     try {
-      const response = await axios.get("http://localhost:3010/user", {
+      const response = await axios.get("/user", {
         params: { userId },
       });
       setUser(response.data);
@@ -24,7 +25,7 @@ const Dashboard = () => {
   };
   const getGenderedUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:3010/gendered-users", {
+      const response = await axios.get("/gendered-users", {
         params: { gender: user?.gender_interest },
       });
       setGenderedUsers(response.data);
@@ -45,7 +46,7 @@ const Dashboard = () => {
 
   const updateFriends = async (friendedUserId) => {
     try {
-      await axios.put("http://localhost:3010/addfriend", {
+      await axios.put("/addfriend", {
         userId,
         friendedUserId,
       });
@@ -80,7 +81,13 @@ const Dashboard = () => {
       {user && (
         <div className="dashboard">
           <ChatContainer user={user} />
+
           <div className="swipe-container">
+            <h1>Potential Friends:</h1>
+            <br />
+            <h2>Swipe right to connect!</h2>
+            <br />
+
             <div className="card-container">
               {filteredGenderedUsers?.map((genderedUser) => (
                 <TinderCard
@@ -97,8 +104,9 @@ const Dashboard = () => {
                   </div>
                 </TinderCard>
               ))}
+
               <div className="swipe-info">
-                {lastDirection ? <p>You swiped {lastDirection}</p> : <p />}
+                {lastDirection ? <p>You swiped {lastDirection}!</p> : <p />}
               </div>
             </div>
           </div>

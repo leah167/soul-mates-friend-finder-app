@@ -1,8 +1,6 @@
 import React from "react";
 import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
-import PersonIcon from "@mui/icons-material/Person";
-import ForumIcon from "@mui/icons-material/Forum";
 import colorLogo from "../images/color-logo.png";
 
 const ChatHeader = ({ user }) => {

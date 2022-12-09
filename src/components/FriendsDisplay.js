@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./Axios";
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 
@@ -11,7 +11,7 @@ const FriendsDisplay = ({ friends, setClickedUser }) => {
 
   const getFriends = async () => {
     try {
-      const response = await axios.get("http://localhost:3010/users", {
+      const response = await axios.get("/users", {
         params: { userIds: JSON.stringify(friendedUserIds) },
       });
       setFriendedProfiles(response.data);

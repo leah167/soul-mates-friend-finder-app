@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "./Axios";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
@@ -22,10 +22,10 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
         setError("Passwords need to match");
         return;
       }
-      const response = await axios.post(
-        `http://localhost:3010/${isSignUp ? "signup" : "login"}`,
-        { email, password }
-      );
+      const response = await axios.post(`${isSignUp ? "signup" : "login"}`, {
+        email,
+        password,
+      });
 
       setCookie("AuthToken", response.data.token);
       setCookie("UserId", response.data.userId);

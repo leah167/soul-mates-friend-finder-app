@@ -11,6 +11,12 @@ h2 {
   font-style: italic;
 }
 
+h3 {
+  font-style: italic;
+  text-decoration: underline;
+  color: #fff;
+}
+
 * {
   margin: 0;
   font-family: "Readex Pro", sans-serif;
@@ -218,7 +224,7 @@ nav .logo-container .logo {
 }
 
 .dashboard .swipe-container {
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -228,6 +234,11 @@ nav .logo-container .logo {
 
 .swipe {
   position: absolute;
+}
+
+.swipe-info {
+  align-self: center;
+  font-weight: bold;
 }
 
 .dashboard .card-container {
